@@ -6,15 +6,15 @@
     Write a webserver in Go:
 
     a. Implement the following Apis:
-    * /USER_NAME/WEB_ADDRESS
+    * /USER/:USERNAME/URL/*ADDRESS
         * your webserver will download the WEB_ADDRESS http response and respond with number of milliseconds the request took.
         * you should store per use statistics:
             * how many requests for this user? 
             * how many requests succeeded/failed?
             * total requests time (per success/fail)
-    * /USER_NAME/STATS
+    * /USER/:USERNAME/STATS
         * return statistics - number of successful and failed requests, avg req time. 
-    * /Stats
+    * /STATS
         * return statistics like above, ignore USER_NAME dimension (total stats of all users)			
 
     b. add a configurable rate limiter - X requests per minute is allowed
