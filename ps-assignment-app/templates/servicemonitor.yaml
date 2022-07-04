@@ -4,6 +4,7 @@ metadata:
   name: {{ include "ps-assignment-app.fullname" . }}
   namespace: ps-assignment
   labels:
+    release: ps-assignment-chart
     {{- include "ps-assignment-app.labels" . | nindent 4 }}
 spec:
   endpoints:
