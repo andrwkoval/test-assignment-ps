@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "ps-assignment-app.fullname" . }}
+  namespace: ps-assignment
+  labels:
+    {{- include "ps-assignment-app.labels" . | nindent 4 }}
+spec:
+  endpoints:
+    - port: http-metrics
+    - interval: 10s
+  selector:
+    matchLabels:
+      {{- include "ps-assignment-app.selectorLabels" . | nindent 6 }}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ps-assignment-app.fullname" . }}
+  labels:
+    {{- include "ps-assignment-app.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http-metrics
+  selector:
+    {{- include "ps-assignment-app.selectorLabels" . | nindent 4 }}
