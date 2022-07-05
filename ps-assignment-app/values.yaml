@@ -83,3 +83,8 @@ affinity: {}
 
 env:
   limitRequestPerMinute: 10
+
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false
